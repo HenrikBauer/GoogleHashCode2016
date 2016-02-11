@@ -54,5 +54,10 @@ namespace Hash2016
                 fileStream.Close();
             }
         }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            Simulation.Run("../../Data/busy_day.in");
+        }
     }
 }

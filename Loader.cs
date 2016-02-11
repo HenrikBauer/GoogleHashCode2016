@@ -13,12 +13,12 @@ namespace Hash2016
         {
             uint result = 0;
 
-            char c;
+            char c = '0';
             do
             {
-                c = (char)fs.ReadByte();
-
                 result = result * 10 + (uint)(c - '0');
+
+                c = (char)fs.ReadByte();
 
             } while (fs.CanRead && c != '\n' && c != ' ');
 
@@ -36,6 +36,11 @@ namespace Hash2016
                 uint deadline = stream.ReadUint();
                 uint droneMaxLoad = stream.ReadUint();
 
+                Simulation.Rows = rows;
+                Simulation.Columns = columns;
+                Simulation.Deadline = deadline;
+                Simulation.DroneMaxLoad = droneMaxLoad;
+
                 // Products weights
                 uint productTypesCount = stream.ReadUint();
                 uint[] productTypesWeights = new uint[productTypesCount];
@@ -51,6 +56,8 @@ namespace Hash2016
                     uint wRow = stream.ReadUint();
                     uint wColumn = stream.ReadUint();
 
+                    Warehouse w = new Warehouse((int)wRow, (int)wColumn, (int)productTypesCount);
+
                     uint[] wItemsCount = new uint[productTypesCount];
                     for (uint j = 0; j < productTypesCount; j++)
                     {
@@ -60,6 +67,8 @@ namespace Hash2016
                             // TODO: add to the warehouse product with id=j and amount=count, weight take from productTypesWeights[j]
                         }
                     }
+                    
+                    Simulation.Warehouses.Add(w);
                 }
 
                 // Customers Orders
