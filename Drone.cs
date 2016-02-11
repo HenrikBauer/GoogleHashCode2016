@@ -10,10 +10,10 @@ namespace Hash2016
     class Drone
     {
         public ProductsSet Set;
-
-        public Drone()
+        public int id;
+        public Drone(int ide)
         {
-
+            id = ide;
         }
 
         public void PickOrder()

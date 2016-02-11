@@ -10,19 +10,28 @@ namespace Hash2016
     {
         public ProductsSet Set;
         int x, y;
+        public int numberOfDrones;
+        public int id;
         
 
-        public Warehouse(int Xloc, int Yloc)
+        public Warehouse(int Xloc, int Yloc, int numOfProducts, int ide)
         {
             x = Xloc;
             y = Yloc;
-           // zmiana 
+            id = ide;
         }
 
-
-        public void PrepareToDelivery()
+        public void AddProduct(int typeId, int q)
         {
-            //products = products.Sort()
+            Set.Items[typeId] = q;
+        }
+      
+        public bool GetProductOfType(int typeId)
+        {
+            if (Set.Items[typeId] <= 0)
+                return false;
+            Set.Items[typeId]--;
+            return true;
         }
     }
 }
