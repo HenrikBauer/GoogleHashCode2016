@@ -6,14 +6,18 @@ using System.Threading.Tasks;
 
 namespace Hash2016
 {
-    
+
     class Drone
     {
+        public ProductsSet Set;
+
         public Drone()
         {
 
         }
 
         public void PickOrder()
+        {
+        }
     }
 }

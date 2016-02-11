@@ -57,7 +57,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Drone.cs" />
-    <Compile Include="Product.cs" />
+    <Compile Include="IntVector2.cs" />
+    <Compile Include="Loader.cs" />
+    <Compile Include="Order.cs" />
+    <Compile Include="ProductsSet.cs" />
+    <Compile Include="Simulation.cs" />
     <Compile Include="SparseMatrix\Node.cs" />
     <Compile Include="SparseMatrix\SparseMatrix.cs" />
     <Compile Include="SparseMatrix\Tree.cs" />

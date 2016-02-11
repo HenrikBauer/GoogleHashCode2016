@@ -41,14 +41,9 @@ namespace Hash2016
                 Simulation.Deadline = deadline;
                 Simulation.DroneMaxLoad = droneMaxLoad;
 
-                // Spawn drones
-                for (uint i = 0; i < drones; i++)
-                {
-                    // TODO: creae empty drone at [0;0]
-                }
-
                 // Products weights
                 int productTypesCount = stream.ReadUint();
+                Simulation.ProductsCount = productTypesCount;
                 Simulation.ProductsWeights = new int[productTypesCount];
                 for (int i = 0; i < productTypesCount; i++)
                 {
@@ -62,15 +57,13 @@ namespace Hash2016
                     int wRow = stream.ReadUint();
                     int wColumn = stream.ReadUint();
 
-                    Warehouse w = new Warehouse((int)wRow, (int)wColumn, (int)productTypesCount);
-
-                    int[] wItemsCount = new int[productTypesCount];
-                    for (uint j = 0; j < productTypesCount; j++)
+                    Warehouse w = new Warehouse(wRow, wColumn);
+                    for (int j = 0; j < productTypesCount; j++)
                     {
                         int count = stream.ReadUint();
                         if (count > 0)
                         {
-                            // TODO: add to the warehouse product with id=j and amount=count, weight take from productTypesWeights[j]
+                            w.Set.Add(j, count);
                         }
                     }
 
@@ -84,16 +77,22 @@ namespace Hash2016
                     int deliveryRow = stream.ReadUint();
                     int deliveryColumn = stream.ReadUint();
 
-                    Order order = new Order(new IntVector2(deliveryRow, deliveryColumn), productTypesCount);
+                    Order order = new Order(new IntVector2(deliveryRow, deliveryColumn));
 
                     int orderedProductsCount = stream.ReadUint();
                     for (int j = 0; j < orderedProductsCount; j++)
                     {
                         int productID = stream.ReadUint();
-                        order._products[productID]++;
+                        order.Set.Add(productID);
                     }
 
                     Simulation.Orders.Add(order);
+                }
+
+                // Spawn drones
+                for (uint i = 0; i < drones; i++)
+                {
+                    // TODO: creae empty drone at [0;0]
                 }
             }
         }

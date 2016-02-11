@@ -12,6 +12,7 @@ namespace Hash2016
         public static int Columns;
         public static int Deadline;
         public static int DroneMaxLoad;
+        public static int ProductsCount;
         public static int[] ProductsWeights;
         public static List<Warehouse> Warehouses = new List<Warehouse>(1024);
         public static List<Order> Orders = new List<Order>(1024);
@@ -24,7 +25,12 @@ namespace Hash2016
             // Load data
             Loader.Load(input);
             
+            // Pre simulation works do be done:
+            // - sort orders
+            // - assign drones to the local warehouses
+            Orders.Sort();
 
+            // Simulation
         }
 
         public static void Clear()
