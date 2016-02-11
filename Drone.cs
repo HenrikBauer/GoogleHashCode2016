@@ -8,5 +8,11 @@ namespace Hash2016
 {
     class Drone
     {
+        public Drone()
+        {
+
+        }
+
+
     }
 }

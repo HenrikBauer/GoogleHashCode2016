@@ -10,15 +10,14 @@ namespace Hash2016
     {
         Product []products;
         int x, y;
-        int size, n;
+        
 
         public Warehouse(int Xloc, int Yloc, int numOfProducts)
         {
             x = Xloc;
             y = Yloc;
             products = new Product[numOfProducts];
-            size = numOfProducts;
-            n = 0;
+           // zmiana 
         }
 
         public void AddProduct(int typeId, int q)
