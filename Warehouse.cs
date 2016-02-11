@@ -8,29 +8,32 @@ namespace Hash2016
 {
     class Warehouse
     {
-        public int[] Products;
+        int []products;
         int x, y;
-        int size, n;
+        
 
         public Warehouse(int Xloc, int Yloc, int numOfProducts)
         {
             x = Xloc;
             y = Yloc;
-            Products = new int[numOfProducts];
-            size = numOfProducts;
-            n = 0;
+            products = new int[numOfProducts];
+           // zmiana 
         }
 
+        public void AddProduct(int typeId, int q)
+        {
+            products[typeId].quanity = q;
+        }
         public void PrepareToDelivery()
         {
             //products = products.Sort()
         }
-
-        public int GetProduct(int typeID)
+        public bool GetProductOfType(int typeId)
         {
-            int temp = Products[size - (n + 1)];
-            n--;
-            return temp;
+            if (products[typeId].quanity <= 0)
+                return false;
+            products[typeId].quanity--;
+            return true;
         }
     }
 }
