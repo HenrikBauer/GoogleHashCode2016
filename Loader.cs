@@ -72,11 +72,8 @@ namespace Hash2016
                     uint orderedProductsCount = stream.ReadUint();
                     for (uint j = 0; j < orderedProductsCount; j++)
                     {
-                        uint count = stream.ReadUint();
-                        if (count > 0)
-                        {
-                            // TODO: add to the order product with id=j and amount=count, weight take from productTypesWeights[j]
-                        }
+                        uint productID = stream.ReadUint();
+                       
                     }
                 }
             }
