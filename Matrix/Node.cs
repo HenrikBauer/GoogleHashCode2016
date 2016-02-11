@@ -15,7 +15,7 @@ namespace MacierzRzadka
         public Node left, right;
         public int level;
         
-        public Node(int i, double v)
+        public Node(int i, int v)
         {
             _index = i;
             value = v;

@@ -42,12 +42,12 @@ namespace MacierzRzadka
 
             wektor = new Vector[rows];
             int trow, tcol;
-            double tvalue;
+            int tvalue;
             for (int i = 1; i < lines.Length; i++)
             {
                 string[] data = lines[i].Split(new char[] { ' ' });
                 
-                if (data.Length!=3||!(Int32.TryParse(data[0], out trow) && Int32.TryParse(data[1], out tcol) && Double.TryParse(data[2], out tvalue)))
+                if (data.Length!=3||!(Int32.TryParse(data[0], out trow) && Int32.TryParse(data[1], out tcol) && int.TryParse(data[2], out tvalue)))
                 {
                     Console.WriteLine("Błąd odczytu danych!");
                     return;
@@ -61,12 +61,12 @@ namespace MacierzRzadka
 
             
         }
-        public void Insert(int r, int c, double value)
+        public void Insert(int r, int c, int value)
         {
             CheckRange(r, c);
             wektor[r].Insert(c, value);
         }
-        public double Get(int row, int col)
+        public int Get(int row, int col)
         {
             CheckRange(row, col);
             return wektor[row].GetAt(col);
@@ -138,7 +138,7 @@ namespace MacierzRzadka
                 throw new ZlyRozmiarException("Zły rozmiar macierzy, mnożenie niemożliwe");
             SparseMatrix c = new SparseMatrix(m1.rows, m2.columns);
             int []avaibleIndexes;
-            double temp;
+            int temp;
             for (int i = 0; i < m1.rows; i++) //pętla po rzędach
             {
                 c.wektor[i] = new Vector();
@@ -193,17 +193,17 @@ namespace MacierzRzadka
         }
 
         L = new SparseMatrix(A.rows, A.columns);//dolnotrójkątna z diagonalą niezerową
-        //U = new SparseMatrix(A.rows, A.columns);//górnotrójkątna z diagonalą zerową
-    
-        double temp;
+                                                //U = new SparseMatrix(A.rows, A.columns);//górnotrójkątna z diagonalą zerową
+
+            int temp;
         for (int i = 0; i < L.rows; i++)//uzupełniam diagonalę L jedynkami
         {
             L.Insert(i, i, 1);
         }
-       
 
-        //Gauss
-        double k;
+
+            //Gauss
+            int k;
         for (int m = 0; m < A.rows; m++)
         {
 
@@ -256,7 +256,7 @@ namespace MacierzRzadka
             
             //czas obliczyć wektor Z
            SparseMatrix Z= new SparseMatrix(rows, 1);
-           double temp = y.Get(0, 0);
+            int temp = y.Get(0, 0);
            Z.Insert(0, 0, temp); //pierwszy element zawsze równy temu z wektora y
 
             for (int i = 1; i < L.rows; i++)//licze elementy wektora z
