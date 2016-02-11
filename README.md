@@ -1,2 +1,2 @@
-# GoolgeHashCode2016
-Goolge Hash Code 2016 event
+# GooglgeHashCode2016
+Googlge Hash Code 2016 event
