@@ -8,17 +8,18 @@ namespace Hash2016
 {
     class Order
     {
-        private List<Product> _products;
+        public int[] _products;
         private IntVector2 _destination;
-
-        public List<Product> GetProducts()
-        {
-            return _products;
-        }
 
         public IntVector2 GetDestination()
         {
             return _destination;
+        }
+
+        public Order(IntVector2 destination, int productsMax)
+        {
+            _destination = destination;
+            _products = new int[productsMax];
         }
     }
 }

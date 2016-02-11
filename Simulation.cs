@@ -8,10 +8,11 @@ namespace Hash2016
 {
     static class Simulation
     {
-        public static uint Rows;
-        public static uint Columns;
-        public static uint Deadline;
-        public static uint DroneMaxLoad;
+        public static int Rows;
+        public static int Columns;
+        public static int Deadline;
+        public static int DroneMaxLoad;
+        public static int[] ProductsWeights;
         public static List<Warehouse> Warehouses = new List<Warehouse>(1024);
         public static List<Order> Orders = new List<Order>(1024);
 
@@ -30,7 +31,8 @@ namespace Hash2016
         {
             Warehouses.Clear();
             Orders.Clear();
-            
+            ProductsWeights = null;
+
             GC.Collect();
         }
     }

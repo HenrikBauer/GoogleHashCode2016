@@ -62,7 +62,6 @@
     </ApplicationDefinition>
     <Compile Include="IntVector2.cs" />
     <Compile Include="Order.cs" />
-    <Compile Include="Product.cs" />
     <Compile Include="Simulation.cs" />
     <Compile Include="Warehouse.cs" />
     <Page Include="MainWindow.xaml">

@@ -8,7 +8,7 @@ namespace Hash2016
 {
     class Warehouse
     {
-        Product []products;
+        public int[] Products;
         int x, y;
         int size, n;
 
@@ -16,26 +16,21 @@ namespace Hash2016
         {
             x = Xloc;
             y = Yloc;
-            products = new Product[numOfProducts];
+            Products = new int[numOfProducts];
             size = numOfProducts;
             n = 0;
         }
 
-        public void AddProduct(Product p)
-        {
-            products[n++] = p;
-        }
         public void PrepareToDelivery()
         {
             //products = products.Sort()
         }
-        public Product GetProduct()
+
+        public int GetProduct(int typeID)
         {
-            
-            Product temp = products[size-(n+1)];
+            int temp = Products[size - (n + 1)];
             n--;
             return temp;
-
         }
     }
 }

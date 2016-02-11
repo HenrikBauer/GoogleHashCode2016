@@ -9,14 +9,14 @@ namespace Hash2016
 {
     static class Loader
     {
-        public static uint ReadUint(this Stream fs)
+        public static int ReadUint(this Stream fs)
         {
-            uint result = 0;
+            int result = 0;
 
             char c = '0';
             do
             {
-                result = result * 10 + (uint)(c - '0');
+                result = result * 10 + (int)(c - '0');
 
                 c = (char)fs.ReadByte();
 
@@ -30,11 +30,11 @@ namespace Hash2016
             using (var stream = new FileStream(path, FileMode.Open, FileAccess.Read))
             {
                 // Parameters of the simulation
-                uint rows = stream.ReadUint();
-                uint columns = stream.ReadUint();
-                uint drones = stream.ReadUint();
-                uint deadline = stream.ReadUint();
-                uint droneMaxLoad = stream.ReadUint();
+                int rows = stream.ReadUint();
+                int columns = stream.ReadUint();
+                int drones = stream.ReadUint();
+                int deadline = stream.ReadUint();
+                int droneMaxLoad = stream.ReadUint();
 
                 Simulation.Rows = rows;
                 Simulation.Columns = columns;
@@ -48,48 +48,52 @@ namespace Hash2016
                 }
 
                 // Products weights
-                uint productTypesCount = stream.ReadUint();
-                uint[] productTypesWeights = new uint[productTypesCount];
-                for (uint i = 0; i < productTypesCount; i++)
+                int productTypesCount = stream.ReadUint();
+                Simulation.ProductsWeights = new int[productTypesCount];
+                for (int i = 0; i < productTypesCount; i++)
                 {
-                    productTypesWeights[i] = stream.ReadUint();
+                    Simulation.ProductsWeights[i] = stream.ReadUint();
                 }
 
                 // Warehouses
-                uint wareHousesCount = stream.ReadUint();
+                int wareHousesCount = stream.ReadUint();
                 for (uint i = 0; i < wareHousesCount; i++)
                 {
-                    uint wRow = stream.ReadUint();
-                    uint wColumn = stream.ReadUint();
+                    int wRow = stream.ReadUint();
+                    int wColumn = stream.ReadUint();
 
                     Warehouse w = new Warehouse((int)wRow, (int)wColumn, (int)productTypesCount);
 
-                    uint[] wItemsCount = new uint[productTypesCount];
+                    int[] wItemsCount = new int[productTypesCount];
                     for (uint j = 0; j < productTypesCount; j++)
                     {
-                        uint count = stream.ReadUint();
+                        int count = stream.ReadUint();
                         if (count > 0)
                         {
                             // TODO: add to the warehouse product with id=j and amount=count, weight take from productTypesWeights[j]
                         }
                     }
-                    
+
                     Simulation.Warehouses.Add(w);
                 }
 
                 // Customers Orders
-                uint ordersCount = stream.ReadUint();
+                int ordersCount = stream.ReadUint();
                 for (uint i = 0; i < ordersCount; i++)
                 {
-                    uint deliveryRow = stream.ReadUint();
-                    uint deliveryColumn = stream.ReadUint();
+                    int deliveryRow = stream.ReadUint();
+                    int deliveryColumn = stream.ReadUint();
 
-                    uint orderedProductsCount = stream.ReadUint();
-                    for (uint j = 0; j < orderedProductsCount; j++)
+                    Order order = new Order(new IntVector2(deliveryRow, deliveryColumn), productTypesCount);
+
+                    int orderedProductsCount = stream.ReadUint();
+                    for (int j = 0; j < orderedProductsCount; j++)
                     {
-                        uint productID = stream.ReadUint();
-                       
+                        int productID = stream.ReadUint();
+                        order._products[productID]++;
                     }
+
+                    Simulation.Orders.Add(order);
                 }
             }
         }
