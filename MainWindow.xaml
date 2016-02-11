@@ -8,6 +8,15 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid>
         <Button x:Name="button" Content="xd" HorizontalAlignment="Left" Margin="214,126,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="bOpenFileDialog" Content="Open File"
+                 Height="30" Width="60" Margin="10"
+                 HorizontalAlignment="Left" VerticalAlignment="Top" 
+                 Click="bOpenFileDialog_Click" />
+
+        <TextBox x:Name="tbResults" Text="Silverlight Results"
+                 Height="30" Width="300" Margin="10,50"
+                 HorizontalAlignment="Left" VerticalAlignment="Top" 
+                 Background="Beige" />
 
     </Grid>
 </Window>
