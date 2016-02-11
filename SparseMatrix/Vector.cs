@@ -18,7 +18,7 @@ namespace MacierzRzadka
             avaibleIndex = new int[32];
             numberofEl = 0;
         }
-        public void Insert(int index, double value)
+        public void Insert(int index, int value)
         {
             if (!this.avaibleIndex.Contains(index)||numberofEl==0)
             {
@@ -30,7 +30,7 @@ namespace MacierzRzadka
             t.root=t.Insert(t.root, index, value, 0);
         }
 
-        public double GetAt(int index)
+        public int GetAt(int index)
         {
             Node temp = t.Get(t.root, index);
             if (temp != null)

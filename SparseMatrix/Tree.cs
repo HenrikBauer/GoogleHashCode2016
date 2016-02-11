@@ -17,7 +17,7 @@ namespace MacierzRzadka
             treeDepth = 0;
         }
 
-        public Node Insert(Node elem, int i, double val, int dep)
+        public Node Insert(Node elem, int i, int val, int dep)
         {
             if (elem == null)
             {

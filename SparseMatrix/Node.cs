@@ -9,7 +9,7 @@ namespace MacierzRzadka
     class Node
     {
         private int _index;
-        public double value;
+        public int value;
         public int index { get { return _index; } }
         public int setIndex { set { _index = value; } }
         public Node left, right;
