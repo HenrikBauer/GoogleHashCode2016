@@ -8,7 +8,9 @@ namespace Hash2016
 {
     class Order : IComparer<Order>, IComparable
     {
+        public int ID;
         public ProductsSet Set;
+
         private IntVector2 _destination;
 
         public IntVector2 GetDestination()
@@ -16,9 +18,11 @@ namespace Hash2016
             return _destination;
         }
 
-        public Order(IntVector2 destination)
+        public Order(int id, IntVector2 destination)
         {
+            ID = id;
             _destination = destination;
+            Set = new ProductsSet();
         }
         
         public int Compare(Order x, Order y)
