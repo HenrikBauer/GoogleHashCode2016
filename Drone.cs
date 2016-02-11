@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace Hash2016
 {
-   public  struct Product
+    class Drone
     {
-        public int id;
-        public int weight;
-        public int quanity;
     }
 }

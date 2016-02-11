@@ -21,21 +21,20 @@ namespace Hash2016
             n = 0;
         }
 
-        public void AddProduct(Product p)
+        public void AddProduct(int typeId, int q)
         {
-            products[n++] = p;
+            products[typeId].quanity = q;
         }
         public void PrepareToDelivery()
         {
             //products = products.Sort()
         }
-        public Product GetProduct()
+        public bool GetProductOfType(int typeId)
         {
-            
-            Product temp = products[size-(n+1)];
-            n--;
-            return temp;
-
+            if (products[typeId].quanity <= 0)
+                return false;
+            products[typeId].quanity--;
+            return true;
         }
     }
 }
