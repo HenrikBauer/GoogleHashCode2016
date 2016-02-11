@@ -48,8 +48,8 @@ namespace Hash2016
 
                 using (System.IO.StreamReader reader = new System.IO.StreamReader(fileStream))
                 {
-                    // Read the first line from the file and write it the textbox.
-                    tbResults.Text = reader.ReadLine();
+                    // Read the first line frearom the file and write it the textbox.
+                    tbResults.Text = reader.ReadToEnd();
                 }
                 fileStream.Close();
             }
