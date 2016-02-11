@@ -41,6 +41,12 @@ namespace Hash2016
                 Simulation.Deadline = deadline;
                 Simulation.DroneMaxLoad = droneMaxLoad;
 
+                // Spawn drones
+                for (uint i = 0; i < drones; i++)
+                {
+                    // TODO: creae empty drone at [0;0]
+                }
+
                 // Products weights
                 uint productTypesCount = stream.ReadUint();
                 uint[] productTypesWeights = new uint[productTypesCount];
