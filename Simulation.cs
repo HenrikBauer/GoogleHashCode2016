@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Shell;
 
 namespace Hash2016
 {
     static class Simulation
     {
-         public static int Rows;
+        public static bool isRunning;
+        public static int Rows;
         public static int Columns;
         public static int Deadline;
         public static int DroneMaxLoad;
@@ -22,6 +24,11 @@ namespace Hash2016
 
         public static void Run(string input)
         {
+            if (isRunning)
+                return;
+
+            isRunning = true;
+
             // Clear previous data
             Clear();
 
@@ -85,6 +92,10 @@ namespace Hash2016
 
             // Write commands
             Commands.Write(input + ".out");
+
+            isRunning = false;
+
+            MessageBox.Show("Done.");
         }
 
         public static void divideDrones()

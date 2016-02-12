@@ -25,7 +25,15 @@ namespace Hash2016
             InitializeComponent();
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            Simulation.Run("../../Data/busy_day.in");
+        }
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            Simulation.Run("../../Data/mother_of_all_warehouses.in");
+        }
+        private void button3_Click(object sender, RoutedEventArgs e)
         {
             Simulation.Run("../../Data/redundancy.in");
         }

@@ -7,7 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Button x:Name="button" Content="Run Busy Day" HorizontalAlignment="Left" Margin="17,29,0,0" VerticalAlignment="Top" Width="118" Height="22" Click="button_Click"/>
+        <Button x:Name="button1" Content="Run 'busy day'" HorizontalAlignment="Left" Margin="17,29,0,0" VerticalAlignment="Top" Width="231" Height="23" Click="button1_Click"/>
+        <Button x:Name="button2" Content="Run 'mother of all warehouses'" HorizontalAlignment="Left" Margin="17,64,0,0" VerticalAlignment="Top" Width="231" Height="23" Click="button2_Click"/>
+        <Button x:Name="button3" Content="Run 'redundancy'" HorizontalAlignment="Left" Margin="17,101,0,0" VerticalAlignment="Top" Width="231" Height="21" Click="button3_Click"/>
 
     </Grid>
 </Window>
