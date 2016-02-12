@@ -7,16 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Button x:Name="button" Content="Run Busy Day" HorizontalAlignment="Left" Margin="17,103,0,0" VerticalAlignment="Top" Width="118" Height="22" Click="button_Click"/>
-        <Button x:Name="bOpenFileDialog" Content="Open File"
-                 Height="30" Width="60" Margin="10"
-                 HorizontalAlignment="Left" VerticalAlignment="Top" 
-                 Click="bOpenFileDialog_Click" />
-
-        <TextBox x:Name="tbResults" Text="Silverlight Results"
-                 Height="30" Width="300" Margin="10,50"
-                 HorizontalAlignment="Left" VerticalAlignment="Top" 
-                 Background="Beige" />
+        <Button x:Name="button" Content="Run Busy Day" HorizontalAlignment="Left" Margin="17,29,0,0" VerticalAlignment="Top" Width="118" Height="22" Click="button_Click"/>
 
     </Grid>
 </Window>
