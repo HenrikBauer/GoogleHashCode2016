@@ -11,8 +11,11 @@ namespace Hash2016
     {
         public ProductsSet Set;
         public int id;
+
+
         public Drone(int ide)
         {
+            Set = new ProductsSet();
             id = ide;
         }
 

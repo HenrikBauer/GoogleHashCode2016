@@ -24,7 +24,7 @@ namespace Hash2016
             _destination = destination;
             Set = new ProductsSet();
         }
-        
+
         public int Compare(Order x, Order y)
         {
             return x.Set.Count.CompareTo(y.Set.Count);

@@ -9,15 +9,15 @@ namespace Hash2016
     class Warehouse
     {
         public ProductsSet Set;
-        int x, y;
+        public IntVector2 Pos;
         public int numberOfDrones;
         public int id;
         
 
-        public Warehouse(int Xloc, int Yloc, int numOfProducts, int ide)
+        public Warehouse(int Xloc, int Yloc, int ide)
         {
-            x = Xloc;
-            y = Yloc;
+            Set = new ProductsSet();
+            Pos = new IntVector2(Xloc, Yloc);
             id = ide;
         }
 

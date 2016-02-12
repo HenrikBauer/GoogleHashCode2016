@@ -27,7 +27,7 @@ namespace Hash2016
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            Simulation.Run("../../Data/busy_day.in");
+            Simulation.Run("../../Data/redundancy.in");
         }
     }
 }

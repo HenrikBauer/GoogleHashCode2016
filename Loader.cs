@@ -52,12 +52,12 @@ namespace Hash2016
 
                 // Warehouses
                 int wareHousesCount = stream.ReadUint();
-                for (uint i = 0; i < wareHousesCount; i++)
+                for (int i = 0; i < wareHousesCount; i++)
                 {
                     int wRow = stream.ReadUint();
                     int wColumn = stream.ReadUint();
 
-                    Warehouse w = new Warehouse(wRow, wColumn);
+                    Warehouse w = new Warehouse(wRow, wColumn, i);
                     for (int j = 0; j < productTypesCount; j++)
                     {
                         int count = stream.ReadUint();
@@ -72,12 +72,12 @@ namespace Hash2016
 
                 // Customers Orders
                 int ordersCount = stream.ReadUint();
-                for (uint i = 0; i < ordersCount; i++)
+                for (int i = 0; i < ordersCount; i++)
                 {
                     int deliveryRow = stream.ReadUint();
                     int deliveryColumn = stream.ReadUint();
 
-                    Order order = new Order(new IntVector2(deliveryRow, deliveryColumn));
+                    Order order = new Order(i, new IntVector2(deliveryRow, deliveryColumn));
 
                     int orderedProductsCount = stream.ReadUint();
                     for (int j = 0; j < orderedProductsCount; j++)
@@ -90,9 +90,10 @@ namespace Hash2016
                 }
 
                 // Spawn drones
-                for (uint i = 0; i < drones; i++)
+                Simulation.drones.Capacity = drones;
+                for (int i = 0; i < drones; i++)
                 {
-                    // TODO: creae empty drone at [0;0]
+                    Simulation.drones.Add(new Drone(i));
                 }
             }
         }
